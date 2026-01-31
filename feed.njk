@@ -1,0 +1,19 @@
+---
+permalink: feed.xml
+---
+<?xml version="1.0" encoding="utf-8"?>
+<feed xmlns="http://www.w3.org/2005/Atom">
+  <title>ravinwashere.com</title>
+  <link href="https://ravinwashere.com" rel="self"/>
+  <link href="https://ravinwashere.com/"/>
+  <id>https://ravinwashere.com/</id>
+  {% for post in collections.post | reverse %}
+  <entry>
+    <title>{{ post.data.title }}</title>
+    <link href="https://ravinwashere.com{{ post.url }}"/>
+    <id>https://ravinwashere.com{{ post.url }}</id>
+    <updated>{{ post.date | dateFilter }}</updated>
+    <summary>{{ post.data.description }}</summary>
+  </entry>
+  {% endfor %}
+</feed>
